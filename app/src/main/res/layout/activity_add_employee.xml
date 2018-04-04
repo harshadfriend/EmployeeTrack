@@ -8,6 +8,24 @@
     tools:context="employeetrack.beit.employeetrack.AddEmployee">
 
     <EditText
+        android:id="@+id/etEmpName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etEmpMobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etEmpAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etEmpIMEI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnAddEmp"
+        android:text="Add Employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -9,18 +9,22 @@
 
     <EditText
         android:id="@+id/etEmpName"
+        android:hint="Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etEmpMobile"
+        android:hint="Mobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etEmpAddress"
+        android:hint="Address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etEmpIMEI"
+        android:hint="IMEI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button

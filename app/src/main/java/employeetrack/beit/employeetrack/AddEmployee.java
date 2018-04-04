@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
@@ -14,7 +15,7 @@ public class AddEmployee extends AppCompatActivity {
     Button btnAddEmp;
 
     Firebase firebase;
-    String dburl="https://jewelleryshop-30ff9.firebaseio.com/";
+    String dburl="https://employeetracking-1caec.firebaseio.com/";
 
 
     @Override
@@ -47,6 +48,9 @@ public class AddEmployee extends AppCompatActivity {
                     fb.setMobile(etEmpMobile.getText().toString());
                     fb.setImei(etEmpIMEI.getText().toString());
                     firebase.child("employee").push().setValue(fb);
+                    Toast.makeText(AddEmployee.this, "Success", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+
                 }
 
             }

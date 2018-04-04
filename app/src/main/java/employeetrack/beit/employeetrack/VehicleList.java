@@ -20,7 +20,7 @@ public class VehicleList extends AppCompatActivity {
         setContentView(R.layout.activity_vehicle_list);
 
         lvVehicle=(ListView)findViewById(R.id.lvVehicle);
-        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,vehiclelist);
+        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
         lvVehicle.setAdapter(adp);
 
         lvVehicle.setOnItemClickListener(new AdapterView.OnItemClickListener() {

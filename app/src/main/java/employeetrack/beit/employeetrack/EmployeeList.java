@@ -21,7 +21,7 @@ public class EmployeeList extends AppCompatActivity {
         setContentView(R.layout.activity_employee_list);
 
         lvEmployee=(ListView)findViewById(R.id.lvEmployee);
-        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,emplist);
+        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
         lvEmployee.setAdapter(adp);
 
         lvEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener() {

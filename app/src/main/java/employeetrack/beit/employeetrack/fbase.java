@@ -5,16 +5,44 @@ package employeetrack.beit.employeetrack;
  */
 
 public class fbase {
-    private String name;
+    private String name,address,imei,mobile;
     private String lat, lon, time;
 
     public fbase(){
+    }
+    /*
+    public String get(){
+        return ;
+    }
+    public void set(String ){
+        this.=;
+    }
+
+*/
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+
+    public String getImei(){
+        return imei;
+    }
+    public void setImei(String imei){
+        this.imei=imei;
+    }
+
+    public String getMobile(){
+        return mobile;
+    }
+    public void setMobile(String mobile){
+        this.mobile=mobile;
     }
 
     public String getName(){
         return name;
     }
-
     public void setName(String name){
         this.name=name;
     }

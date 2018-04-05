@@ -22,7 +22,7 @@ public class Attendance extends AppCompatActivity {
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
     DatabaseReference dbRef;
-
+    String str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MapsActivity.Name=String.valueOf(parent.getItemAtPosition(position));
-                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                //startActivity(new Intent(getApplicationContext(),MapsActivity.class));
                 //Toast.makeText(EmployeeList.this, "test"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }
         });

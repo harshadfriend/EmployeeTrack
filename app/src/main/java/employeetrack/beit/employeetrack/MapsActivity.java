@@ -1,5 +1,6 @@
 package employeetrack.beit.employeetrack;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -9,8 +10,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.ButtCap;
+import com.google.android.gms.maps.model.Cap;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,17 +60,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Toast.makeText(this, ""+Name, Toast.LENGTH_SHORT).show();
         mMap = googleMap;
         //mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
         //Query query=dbRef.child("person").orderByChild("name").equalTo(etSearch.getText().toString());
 //        Query query = dbRef.child("siot").orderByChild("name").equalTo("seema");
-        Query query = dbRef.child("Employee").child("emp1").orderByChild("name").equalTo(Name);
+//        Query query = dbRef.child("employee").child(Name).orderByChild("name").equalTo(Name);
+        Query query = dbRef.child("employee").child(Name).orderByChild("name").equalTo(Name);
         query.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    fbase pson = data.getValue(fbase.class);
+               for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    fbase pson = dataSnapshot.getValue(fbase.class);
                     //Toast.makeText(busGrid.this, "Name: " + pson.getName() + "Address: " + pson.getAddress(), Toast.LENGTH_SHORT).show();
                     //tvBusGrid.setText(pson.getAddress());
                     //tvResult.setText("Name: "+pson.getName()+"\nAddress: "+pson.getAddress());
@@ -98,7 +105,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng()));
 //        mMap.addMarker(new MarkerOptions().position(new LatLng(20,21)).title("You are here !"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(20,21)));
+        /*x=19.55;y=73.22;
         mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(x,y)));
+        x=19.65;y=73.22;
+        mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));
+        x=19.75;y=73.22;
+//        mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));
+        mMap.addCircle(new CircleOptions().center(new LatLng(x,y)).radius(100).fillColor(Color.CYAN).strokeColor(Color.GREEN));
+        //mMap.addPolyline(new PolylineOptions().add(new LatLng(x,y)).color(Color.GREEN).addAll());
+        x=19.85;y=73.22;
+        mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(x,y),10));*/
     }
 }

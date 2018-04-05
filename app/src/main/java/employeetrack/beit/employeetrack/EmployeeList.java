@@ -21,7 +21,7 @@ public class EmployeeList extends AppCompatActivity {
 
     ListView lvEmployee;
     //String emplist[]={"Emp1","Emp2","Emp3","Emp4","Emp5","Emp6","Emp7","Emp8","Emp9"};
-    ArrayAdapter<String> adp;
+    ArrayAdapter<String> adp,imeiadp;
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
     DatabaseReference dbRef;
@@ -40,6 +40,7 @@ public class EmployeeList extends AppCompatActivity {
 
         lvEmployee=(ListView)findViewById(R.id.lvEmployee);
         adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+        imeiadp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
         adp.setNotifyOnChange(true);
         lvEmployee.setAdapter(adp);
 
@@ -50,6 +51,7 @@ public class EmployeeList extends AppCompatActivity {
                 for(DataSnapshot data:dataSnapshot.getChildren()){
                     fbase f=data.getValue(fbase.class);
                     adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
+                    imeiadp.add(f.getImei());
                 }
                 lvEmployee.setAdapter(adp);
             }
@@ -63,7 +65,8 @@ public class EmployeeList extends AppCompatActivity {
         lvEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MapsActivity.Name=String.valueOf(parent.getItemAtPosition(position));
+//                MapsActivity.Name=String.valueOf(parent.getItemAtPosition(position));
+                MapsActivity.Name=imeiadp.getItem(position);
                 startActivity(new Intent(getApplicationContext(),MapsActivity.class));
                 //Toast.makeText(EmployeeList.this, "test"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }

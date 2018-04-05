@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class EmployeeList extends AppCompatActivity {
 
     ListView lvEmployee;
-    String emplist[]={"Emp1","Emp2","Emp3","Emp4","Emp5","Emp6","Emp7","Emp8","Emp9"};
+    //String emplist[]={"Emp1","Emp2","Emp3","Emp4","Emp5","Emp6","Emp7","Emp8","Emp9"};
     ArrayAdapter<String> adp;
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
@@ -49,7 +49,7 @@ public class EmployeeList extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot data:dataSnapshot.getChildren()){
                     fbase f=data.getValue(fbase.class);
-                    adp.add(f.getName()+"\n"+f.getAddress()+"\n"+f.getMobile());
+                    adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
                 }
                 lvEmployee.setAdapter(adp);
             }

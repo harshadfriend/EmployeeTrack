@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class VehicleList extends AppCompatActivity {
 
     ListView lvVehicle;
-    String vehiclelist[]={"Vehicle1","Vehicle2","Vehicle3","Vehicle4","Vehicle5","Vehicle6","Vehicle7","Vehicle8","Vehicle9"};
+  //  String vehiclelist[]={"Vehicle1","Vehicle2","Vehicle3","Vehicle4","Vehicle5","Vehicle6","Vehicle7","Vehicle8","Vehicle9"};
     ArrayAdapter<String> adp;
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
@@ -47,7 +47,7 @@ public class VehicleList extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot data:dataSnapshot.getChildren()){
                     fbase f=data.getValue(fbase.class);
-                    adp.add(f.getName()+"\n"+f.getAddress()+"\n"+f.getMobile());
+                    adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
                 }
                 lvVehicle.setAdapter(adp);
             }

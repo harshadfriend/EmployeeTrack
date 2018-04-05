@@ -87,7 +87,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.clear();  //clear previous markers
 
                     //mMap.setMaxZoomPreference(5);
-                    mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));  //add marker to desired position
+                  //  mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));  //add marker to desired position
+                   mMap.addPolyline(new PolylineOptions().add(new LatLng(x,y)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(x,y),17));  //move camera along with zoom level, here 17
                     //onMapReady();
                 }

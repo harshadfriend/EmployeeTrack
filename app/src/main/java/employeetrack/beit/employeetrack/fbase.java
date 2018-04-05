@@ -5,7 +5,7 @@ package employeetrack.beit.employeetrack;
  */
 
 public class fbase {
-    private String name,address,imei,mobile;
+    private String name,address,imei,mobile,uname,pwd;
     private String lat, lon, time;
 
     public fbase(){
@@ -19,6 +19,21 @@ public class fbase {
     }
 
 */
+    public String getUname(){
+        return uname;
+    }
+    public void setUname(String uname){
+        this.uname=uname;
+    }
+
+    public String getPwd(){
+        return pwd;
+    }
+    public void setPwd(String pwd){
+        this.pwd=pwd;
+    }
+
+
     public String getAddress(){
         return address;
     }

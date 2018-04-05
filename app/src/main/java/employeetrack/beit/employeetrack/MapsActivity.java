@@ -67,10 +67,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Query query=dbRef.child("person").orderByChild("name").equalTo(etSearch.getText().toString());
 //        Query query = dbRef.child("siot").orderByChild("name").equalTo("seema");
 //        Query query = dbRef.child("employee").child(Name).orderByChild("name").equalTo(Name);
-        Query query = dbRef.child("employee").child(Name).orderByChild("name").equalTo(Name);
+
+        Query query = dbRef.child("employee").child("livelocation").orderByChild("name").equalTo(Name);
         query.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+
                for (DataSnapshot data : dataSnapshot.getChildren()) {
                     fbase pson = dataSnapshot.getValue(fbase.class);
                     //Toast.makeText(busGrid.this, "Name: " + pson.getName() + "Address: " + pson.getAddress(), Toast.LENGTH_SHORT).show();

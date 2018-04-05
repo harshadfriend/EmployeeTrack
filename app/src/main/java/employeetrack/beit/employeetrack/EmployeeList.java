@@ -44,14 +44,16 @@ public class EmployeeList extends AppCompatActivity {
         adp.setNotifyOnChange(true);
         lvEmployee.setAdapter(adp);
 
-        Query q=dbRef.child("employee");
+        Query q=dbRef.child("employee").child("profile");
         q.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot data:dataSnapshot.getChildren()){
-                    fbase f=data.getValue(fbase.class);
-                    adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
-                    imeiadp.add(f.getImei());
+                for(DataSnapshot data:dataSnapshot.getChildren()) {
+//                    for (DataSnapshot d : data.getChildren()) {
+                        fbase f = data.getValue(fbase.class);
+                        adp.add(f.getName() + " " + f.getAddress() + "\n" + f.getMobile());
+                        imeiadp.add(f.getImei());
+//                    }
                 }
                 lvEmployee.setAdapter(adp);
             }

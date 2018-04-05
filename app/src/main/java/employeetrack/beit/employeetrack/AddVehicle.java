@@ -47,7 +47,7 @@ public class AddVehicle extends AppCompatActivity {
                     fb.setAddress(etVehAddress.getText().toString());
                     fb.setMobile(etVehMobile.getText().toString());
                     fb.setImei(etVehIMEI.getText().toString());
-                    firebase.child("vehicle").push().setValue(fb);
+                    firebase.child("vehicle").child("profile").child(etVehIMEI.getText().toString()).setValue(fb);
                     Toast.makeText(AddVehicle.this, "Success", Toast.LENGTH_SHORT).show();
                     onBackPressed();
 

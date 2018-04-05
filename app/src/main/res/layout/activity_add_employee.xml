@@ -13,6 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:id="@+id/etEmpUname"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etEmpPwd"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:id="@+id/etEmpMobile"
         android:hint="Mobile"
         android:layout_width="match_parent"

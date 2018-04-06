@@ -54,11 +54,10 @@ public class AddEmployee extends AppCompatActivity {
                     fb.setMobile(etEmpMobile.getText().toString());
                     fb.setImei(etEmpIMEI.getText().toString());
                     fb.setUname(etEmpUname.getText().toString());
-                    fb.setPwd(etEmpPwd.getText().toString()
-                    );
+                    fb.setPwd(etEmpPwd.getText().toString());
 
                     firebase.child("employee").child("profile").child(etEmpIMEI.getText().toString()).setValue(fb);
-                    firebase.child("employee").child("profile").child(etEmpIMEI.getText().toString()).setValue(fb);
+//                    firebase.child("employee").child("profile").child(etEmpIMEI.getText().toString()).setValue(fb);
                     Toast.makeText(AddEmployee.this, "Success", Toast.LENGTH_SHORT).show();
                     onBackPressed();
 

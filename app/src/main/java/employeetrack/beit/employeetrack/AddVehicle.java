@@ -11,7 +11,7 @@ import com.firebase.client.Firebase;
 
 public class AddVehicle extends AppCompatActivity {
 
-    EditText etVehName,etVehAddress,etVehMobile,etVehIMEI;
+    EditText etVehName,etVehAddress,etVehMobile,etVehIMEI,etVehUname,etVehPwd;
     Button btnAddVeh;
 
     Firebase firebase;
@@ -30,7 +30,10 @@ public class AddVehicle extends AppCompatActivity {
         etVehMobile=findViewById(R.id.etVehMobile);
         etVehAddress=findViewById(R.id.etVehAddress);
         etVehIMEI=findViewById(R.id.etVehIMEI);
+        etVehUname=findViewById(R.id.etVehUname);
+        etVehPwd=findViewById(R.id.etVehPwd);
         btnAddVeh=findViewById(R.id.btnAddVeh);
+
 
         btnAddVeh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,14 +42,19 @@ public class AddVehicle extends AppCompatActivity {
                 if(etVehMobile.getText().toString().isEmpty()) etVehMobile.setError("Mobile");
                 if(etVehAddress.getText().toString().isEmpty()) etVehAddress.setError("Address");
                 if(etVehIMEI.getText().toString().isEmpty()) etVehIMEI.setError("IMEI");
+                if(etVehUname.getText().toString().isEmpty()) etVehUname.setError("Username");
+                if(etVehPwd.getText().toString().isEmpty()) etVehPwd.setError("Password");
 
                 if(!etVehName.getText().toString().isEmpty() && !etVehMobile.getText().toString().isEmpty()
-                        && !etVehAddress.getText().toString().isEmpty() && !etVehIMEI.getText().toString().isEmpty()) {
+                        && !etVehAddress.getText().toString().isEmpty() && !etVehIMEI.getText().toString().isEmpty()
+                        && !etVehUname.getText().toString().isEmpty() && !etVehPwd.getText().toString().isEmpty()) {
                     fbase fb=new fbase();
                     fb.setName(etVehName.getText().toString());
                     fb.setAddress(etVehAddress.getText().toString());
                     fb.setMobile(etVehMobile.getText().toString());
                     fb.setImei(etVehIMEI.getText().toString());
+                    fb.setUname(etVehUname.getText().toString());
+                    fb.setPwd(etVehPwd.getText().toString());
                     firebase.child("vehicle").child("profile").child(etVehIMEI.getText().toString()).setValue(fb);
                     Toast.makeText(AddVehicle.this, "Success", Toast.LENGTH_SHORT).show();
                     onBackPressed();

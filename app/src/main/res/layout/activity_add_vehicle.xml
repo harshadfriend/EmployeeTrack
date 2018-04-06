@@ -13,6 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:id="@+id/etVehUname"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etVehPwd"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
         android:id="@+id/etVehMobile"
         android:hint="Vehicle Associated Mobile Number"
         android:layout_width="match_parent"

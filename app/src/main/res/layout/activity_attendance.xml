@@ -7,6 +7,26 @@
     android:orientation="vertical"
     tools:context="employeetrack.beit.employeetrack.Attendance">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnEmpAtt"
+            android:layout_margin="1dp"
+            android:text="Employee"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnVehAtt"
+            android:text="Vehicle"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lvAttend"
         android:layout_width="match_parent"

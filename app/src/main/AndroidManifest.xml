@@ -24,8 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"
-            android:label="Home"/>
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,22 +42,31 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".EmployeeList"
-            android:label="List of Employees"/>
-        <activity android:name=".VehicleList"
-            android:label="List of Vehicles"/>
-        <activity android:name=".Profile"
-            android:label="Profile"/>
-        <activity android:name=".Attendance"
-            android:label="Attendance"/>
-        <activity android:name=".AddEmployee"
-            android:label="Add Employee"/>
-        <activity android:name=".AddVehicle"
-            android:label="Add Vehicle"/>
-        <activity android:name=".Settings"
-            android:label="Settings"/>
-        <activity android:name=".Help"
-            android:label="Help"></activity>
+        <activity
+            android:name=".EmployeeList"
+            android:label="List of Employees" />
+        <activity
+            android:name=".VehicleList"
+            android:label="List of Vehicles" />
+        <activity
+            android:name=".Profile"
+            android:label="Profile" />
+        <activity
+            android:name=".Attendance"
+            android:label="Attendance" />
+        <activity
+            android:name=".AddEmployee"
+            android:label="Add Employee" />
+        <activity
+            android:name=".AddVehicle"
+            android:label="Add Vehicle" />
+        <activity
+            android:name=".Settings"
+            android:label="Settings" />
+        <activity
+            android:name=".Help"
+            android:label="Help" />
+        <activity android:name=".AttendanceDetails"></activity>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/btnEmpAtt"
+            android:drawableLeft="@mipmap/employee"
             android:layout_margin="1dp"
             android:text="Employee"
             android:layout_weight="1"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/btnVehAtt"
+            android:drawableLeft="@mipmap/vehicle"
             android:text="Vehicle"
             android:layout_margin="1dp"
             android:layout_weight="1"

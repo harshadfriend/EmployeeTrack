@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.firebase.client.Firebase;
@@ -23,7 +24,8 @@ public class Attendance extends AppCompatActivity {
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
     DatabaseReference dbRef;
-    String str,name;
+    String type="emp";
+    Button btnVehAtt,btnEmpAtt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class Attendance extends AppCompatActivity {
         firebase=new Firebase(dburl);
 
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        btnVehAtt=findViewById(R.id.btnVehAtt);
+        btnEmpAtt=findViewById(R.id.btnEmpAtt);
 
         lvAttend=(ListView)findViewById(R.id.lvAttend);
         adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
@@ -68,8 +73,61 @@ public class Attendance extends AppCompatActivity {
                 Intent i=new Intent(Attendance.this,AttendanceDetails.class);
                 i.putExtra("imei",keyadp.getItem(position));
                 i.putExtra("title",parent.getItemAtPosition(position).toString().split(" ")[0]);
+                i.putExtra("type",type);
                 startActivity(i);
                 //Toast.makeText(EmployeeList.this, "test"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnEmpAtt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type="emp";
+                Query q=dbRef.child("employee").child("profile");
+                q.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data:dataSnapshot.getChildren()){
+
+                            fbase f=data.getValue(fbase.class);
+                            adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
+                            keyadp.add(f.getImei());
+                            Log.d("studio",data.getKey());
+                        }
+                        lvAttend.setAdapter(adp);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+        btnVehAtt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                type="veh";
+                Query q=dbRef.child("vehicle").child("profile");
+                q.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data:dataSnapshot.getChildren()){
+
+                            fbase f=data.getValue(fbase.class);
+                            adp.add(f.getName()+" "+f.getAddress()+"\n"+f.getMobile());
+                            keyadp.add(f.getImei());
+                            Log.d("studio",data.getKey());
+                        }
+                        lvAttend.setAdapter(adp);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
 

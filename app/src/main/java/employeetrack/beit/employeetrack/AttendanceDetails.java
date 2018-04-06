@@ -22,7 +22,7 @@ public class AttendanceDetails extends AppCompatActivity {
     DatabaseReference dbref;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
     String str="";
-    String imei,strTitle;
+    String imei,strTitle,type;
     TextView tvTitle;
 
     @Override
@@ -33,6 +33,7 @@ public class AttendanceDetails extends AppCompatActivity {
         Bundle extras=getIntent().getExtras();
         imei=extras.getString("imei");
         strTitle=extras.getString("title");
+        type=extras.getString("type");
 
 
         Firebase.setAndroidContext(this);
@@ -47,33 +48,66 @@ public class AttendanceDetails extends AppCompatActivity {
         tvTitle=findViewById(R.id.tvTitle);
         tvTitle.setText(strTitle);
 
-        Query q=dbref.child("employee").child("attendance");
-        q.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                adp.clear();
-                for(DataSnapshot data:dataSnapshot.getChildren()){
-                    if(data.getKey().equals(imei)){
-                        for(DataSnapshot d:data.getChildren()){
-                            str="";
-                            str+="Date: "+d.getKey()+"\n"+"------------------------------";
-                            for(DataSnapshot e:d.getChildren()){
-                                str+="\n"+e.getKey();
+        if(type.equals("emp")) {
+            Query q = dbref.child("employee").child("attendance");
+            q.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    adp.clear();
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                        if (data.getKey().equals(imei)) {
+                            for (DataSnapshot d : data.getChildren()) {
+                                str = "";
+                                str += "Date: " + d.getKey() + "\n" + "------------------------------";
+                                for (DataSnapshot e : d.getChildren()) {
+                                    str += "\n" + e.getKey();
+                                }
+                                str += "\n";
+                                adp.add(str);
                             }
-                            str+="\n";
-                            adp.add(str);
+
                         }
-
                     }
+                    Log.d("studio", str);
+                    lvAttDet.setAdapter(adp);
                 }
-                Log.d("studio",str);
-                lvAttDet.setAdapter(adp);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
+
+        if(type.equals("veh")) {
+            Query q = dbref.child("vehicle").child("attendance");
+            q.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    adp.clear();
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                        if (data.getKey().equals(imei)) {
+                            for (DataSnapshot d : data.getChildren()) {
+                                str = "";
+                                str += "Date: " + d.getKey() + "\n" + "------------------------------";
+                                for (DataSnapshot e : d.getChildren()) {
+                                    str += "\n" + e.getKey();
+                                }
+                                str += "\n";
+                                adp.add(str);
+                            }
+
+                        }
+                    }
+                    Log.d("studio", str);
+                    lvAttDet.setAdapter(adp);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 }

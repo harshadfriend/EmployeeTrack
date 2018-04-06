@@ -69,7 +69,10 @@ public class EmployeeList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                MapsActivity.Name=String.valueOf(parent.getItemAtPosition(position));
                 MapsActivity.Name=imeiadp.getItem(position);
-                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                Intent i=new Intent(EmployeeList.this,MapsActivity.class);
+                i.putExtra("type","emp");
+//                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                startActivity(i);
                 //Toast.makeText(EmployeeList.this, "test"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }
         });

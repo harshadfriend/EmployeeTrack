@@ -30,12 +30,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static String Name="";
     Firebase firebase;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
+    String type="";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        Bundle extras=getIntent().getExtras();
+        type=extras.getString("type");
 
         Firebase.setAndroidContext(this);
         firebase = new Firebase(dburl);
@@ -67,8 +71,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Query query=dbRef.child("person").orderByChild("name").equalTo(etSearch.getText().toString());
 //        Query query = dbRef.child("siot").orderByChild("name").equalTo("seema");
 //        Query query = dbRef.child("employee").child(Name).orderByChild("name").equalTo(Name);
-
-        Query query = dbRef.child("employee").child("livelocation").orderByChild("name").equalTo(Name);
+        Query query=null;
+        if(type.equals("emp"))
+            query = dbRef.child("employee").child("livelocation").orderByChild("name").equalTo(Name);
+        if(type.equals("veh"))
+            query = dbRef.child("vehicle").child("livelocation").orderByChild("name").equalTo(Name);
         query.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {

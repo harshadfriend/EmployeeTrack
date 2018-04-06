@@ -62,7 +62,11 @@ public class VehicleList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MapsActivity.Name=String.valueOf(parent.getItemAtPosition(position));
-                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                Intent i=new Intent(VehicleList.this,MapsActivity.class);
+                i.putExtra("type","veh");
+//                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                startActivity(i);
+//                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
                 //Toast.makeText(EmployeeList.this, "test"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }
         });

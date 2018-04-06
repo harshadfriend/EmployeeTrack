@@ -43,7 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Toast.makeText(this, ""+Name, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, ""+Name, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -60,7 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, ""+Name, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, ""+Name, Toast.LENGTH_SHORT).show();
         mMap = googleMap;
         //mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
@@ -74,7 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
 
                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    fbase pson = dataSnapshot.getValue(fbase.class);
+                    fbase pson = data.getValue(fbase.class);
                     //Toast.makeText(busGrid.this, "Name: " + pson.getName() + "Address: " + pson.getAddress(), Toast.LENGTH_SHORT).show();
                     //tvBusGrid.setText(pson.getAddress());
                     //tvResult.setText("Name: "+pson.getName()+"\nAddress: "+pson.getAddress());
@@ -86,11 +86,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     //  Toast.makeText(MapsActivity.this,""+x+" "+y, Toast.LENGTH_SHORT).show();  //show coordinates
 
-                    mMap.clear();  //clear previous markers
+                   // mMap.clear();  //clear previous markers
 
                     //mMap.setMaxZoomPreference(5);
-                  //  mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));  //add marker to desired position
-                   mMap.addPolyline(new PolylineOptions().add(new LatLng(x,y)));
+                    //mMap.addMarker(new MarkerOptions().position(new LatLng(x,y)).title("You are here !"));  //add marker to desired position
+                   mMap.addCircle(new CircleOptions().center(new LatLng(x,y)).radius(100).fillColor(Color.CYAN).strokeColor(Color.GREEN));
+                   mMap.addPolyline(new PolylineOptions().add(new LatLng(x,y)).color(Color.BLUE));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(x,y),17));  //move camera along with zoom level, here 17
                     //onMapReady();
                 }

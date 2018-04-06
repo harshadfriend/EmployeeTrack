@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +22,8 @@ public class AttendanceDetails extends AppCompatActivity {
     DatabaseReference dbref;
     String dburl="https://employeetracking-1caec.firebaseio.com/";
     String str="";
-    String imei;
+    String imei,strTitle;
+    TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class AttendanceDetails extends AppCompatActivity {
 
         Bundle extras=getIntent().getExtras();
         imei=extras.getString("imei");
+        strTitle=extras.getString("title");
+
 
         Firebase.setAndroidContext(this);
         dbref= FirebaseDatabase.getInstance().getReference();
@@ -40,6 +44,9 @@ public class AttendanceDetails extends AppCompatActivity {
         adp.setNotifyOnChange(true);
         lvAttDet.setAdapter(adp);
 
+        tvTitle=findViewById(R.id.tvTitle);
+        tvTitle.setText(strTitle);
+
         Query q=dbref.child("employee").child("attendance");
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -48,11 +55,13 @@ public class AttendanceDetails extends AppCompatActivity {
                 for(DataSnapshot data:dataSnapshot.getChildren()){
                     if(data.getKey().equals(imei)){
                         for(DataSnapshot d:data.getChildren()){
-                            str+=d.getKey()+"\n";
+                            str="";
+                            str+="Date: "+d.getKey()+"\n"+"------------------------------";
                             for(DataSnapshot e:d.getChildren()){
-                                str+=e.getKey()+"\n";
+                                str+="\n"+e.getKey();
                             }
-                            adp.add(str+"\n");
+                            str+="\n";
+                            adp.add(str);
                         }
 
                     }

@@ -41,7 +41,7 @@ public class VehicleList extends AppCompatActivity {
         adp.setNotifyOnChange(true);
         lvVehicle.setAdapter(adp);
 
-        Query q=dbRef.child("vehicle");
+        Query q=dbRef.child("vehicle").child("profile");
         q.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

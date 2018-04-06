@@ -82,6 +82,7 @@ public class Attendance extends AppCompatActivity {
         btnEmpAtt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                adp.clear();
                 type="emp";
                 Query q=dbRef.child("employee").child("profile");
                 q.addValueEventListener(new ValueEventListener() {
@@ -108,6 +109,7 @@ public class Attendance extends AppCompatActivity {
         btnVehAtt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                adp.clear();
                 type="veh";
                 Query q=dbRef.child("vehicle").child("profile");
                 q.addValueEventListener(new ValueEventListener() {

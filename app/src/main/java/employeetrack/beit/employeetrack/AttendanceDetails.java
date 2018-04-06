@@ -44,6 +44,7 @@ public class AttendanceDetails extends AppCompatActivity {
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                adp.clear();
                 for(DataSnapshot data:dataSnapshot.getChildren()){
                     if(data.getKey().equals(imei)){
                         for(DataSnapshot d:data.getChildren()){
@@ -51,8 +52,9 @@ public class AttendanceDetails extends AppCompatActivity {
                             for(DataSnapshot e:d.getChildren()){
                                 str+=e.getKey()+"\n";
                             }
+                            adp.add(str+"\n");
                         }
-                        adp.add(str);
+
                     }
                 }
                 Log.d("studio",str);

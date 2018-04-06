@@ -9,6 +9,8 @@
 
     <ListView
         android:id="@+id/lvAttDet"
+        android:dividerHeight="1dp"
+        android:divider="#faa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

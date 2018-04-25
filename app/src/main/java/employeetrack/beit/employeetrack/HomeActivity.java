@@ -48,15 +48,15 @@ public class HomeActivity extends AppCompatActivity {
             btnAddVeh.setTextSize(15);
         }
 
-        if(employeetrack.beit.employeetrack.Settings.i==2){
-            btnProfile.setTextSize(18);
-            btnAttendance.setTextSize(18);
-            btnTrackEmp.setTextSize(18);
-            btnTrackVeh.setTextSize(18);
-            btnHelp.setTextSize(18);
-            btnSettings.setTextSize(18);
-            btnAddEmp.setTextSize(18);
-            btnAddVeh.setTextSize(18);
+        if(employeetrack.beit.employeetrack.Settings.i==3){
+            btnProfile.setTextSize(21);
+            btnAttendance.setTextSize(21);
+            btnTrackEmp.setTextSize(21);
+            btnTrackVeh.setTextSize(21);
+            btnHelp.setTextSize(21);
+            btnSettings.setTextSize(21);
+            btnAddEmp.setTextSize(21);
+            btnAddVeh.setTextSize(21);
         }
 
        btnTrackEmp.setOnClickListener(new View.OnClickListener() {

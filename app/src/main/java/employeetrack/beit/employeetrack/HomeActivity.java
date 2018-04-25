@@ -37,6 +37,28 @@ public class HomeActivity extends AppCompatActivity {
         btnHelp=findViewById(R.id.btnHelp);
         btnSettings=findViewById(R.id.btnSettings);
 
+        if(employeetrack.beit.employeetrack.Settings.i==1){
+            btnProfile.setTextSize(15);
+            btnAttendance.setTextSize(15);
+            btnTrackEmp.setTextSize(15);
+            btnTrackVeh.setTextSize(15);
+            btnHelp.setTextSize(15);
+            btnSettings.setTextSize(15);
+            btnAddEmp.setTextSize(15);
+            btnAddVeh.setTextSize(15);
+        }
+
+        if(employeetrack.beit.employeetrack.Settings.i==2){
+            btnProfile.setTextSize(18);
+            btnAttendance.setTextSize(18);
+            btnTrackEmp.setTextSize(18);
+            btnTrackVeh.setTextSize(18);
+            btnHelp.setTextSize(18);
+            btnSettings.setTextSize(18);
+            btnAddEmp.setTextSize(18);
+            btnAddVeh.setTextSize(18);
+        }
+
        btnTrackEmp.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -83,6 +105,7 @@ public class HomeActivity extends AppCompatActivity {
        btnSettings.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               finish();
                startActivity(new Intent(HomeActivity.this, employeetrack.beit.employeetrack.Settings.class));
            }
        });

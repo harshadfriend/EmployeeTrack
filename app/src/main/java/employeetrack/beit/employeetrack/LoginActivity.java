@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     public void btnLogin_click(View v) {
 
         if (etUsername.getText().toString().equals("admin") && etPassword.getText().toString().equals("admin")) {
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, Welcome.class));
             finish();
 //            startActivity(new Intent(this,MapsActivity.class));
         }

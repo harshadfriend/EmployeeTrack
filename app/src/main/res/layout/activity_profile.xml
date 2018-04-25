@@ -5,25 +5,74 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context="employeetrack.beit.employeetrack.Profile">
 
-    <ImageView
-        android:background="@drawable/user2"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
-    <android.support.v4.widget.Space
-        android:layout_width="wrap_content"
-        android:layout_height="20dp" />
     <TextView
-        android:text="Welcome"
-        android:layout_width="wrap_content"
+        android:text="Name :"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
-        android:text="Admin"
+        android:id="@+id/tvName"
+        android:textColor="#00a"
+        android:text="Mr. Admin"
         android:textSize="25dp"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:text="Address :"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:text="Kalyan"
+        android:textColor="#a00"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:text="Mobile :"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvMobile"
+        android:text="9876543210"
+        android:textColor="#0a0"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:text="IMEI :"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvImei"
+        android:textColor="#000"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

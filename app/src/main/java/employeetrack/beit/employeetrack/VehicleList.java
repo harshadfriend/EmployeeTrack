@@ -1,12 +1,16 @@
 package employeetrack.beit.employeetrack;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +41,30 @@ public class VehicleList extends AppCompatActivity {
 
 
         lvVehicle=(ListView)findViewById(R.id.lvVehicle);
-        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+        adp=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+                View view =super.getView(position, convertView, parent);
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+                if(Settings.i==1){
+                    textView.setTextSize(15);
+                }
+                else if(Settings.i==2){
+                    textView.setTextSize(18);
+                }
+                else
+                    textView.setTextSize(20);
+            /*YOUR CHOICE OF COLOR*/
+                //              textView.setTextColor(Color.WHITE);
+//                textView.setTypeface(null, Typeface.BOLD);
+
+                return view;
+
+            }
+        };
+
         adp.setNotifyOnChange(true);
         lvVehicle.setAdapter(adp);
 

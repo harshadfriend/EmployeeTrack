@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tvProfile"
             android:layout_margin="3dp"
             android:textSize="18dp"
             android:padding="2dp"
@@ -20,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tvAtt"
             android:layout_margin="3dp"
             android:textSize="18dp"
             android:padding="2dp"
@@ -28,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tvAdd"
             android:layout_margin="3dp"
             android:textSize="18dp"
             android:padding="2dp"
@@ -36,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tvTrack"
             android:layout_margin="3dp"
             android:textSize="18dp"
             android:padding="2dp"
@@ -44,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/tvSettings"
             android:layout_margin="3dp"
             android:textSize="18dp"
             android:padding="2dp"

@@ -21,18 +21,18 @@
         android:id="@+id/etUsername"
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="75dp" />
 
     <EditText
         android:id="@+id/etPassword"
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="75dp" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:onClick="btnLogin_click"
         android:text="Login" />
 

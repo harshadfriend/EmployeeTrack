@@ -66,7 +66,8 @@
         <activity
             android:name=".Help"
             android:label="Help" />
-        <activity android:name=".AttendanceDetails"></activity>
+        <activity android:name=".AttendanceDetails" />
+        <activity android:name=".Welcome"></activity>
     </application>
 
 </manifest>

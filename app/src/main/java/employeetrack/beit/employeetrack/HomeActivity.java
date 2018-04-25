@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Snackbar.make(findViewById(android.R.id.content),"Login Successful !",Snackbar.LENGTH_LONG).show();
+      //  Snackbar.make(findViewById(android.R.id.content),"Login Successful !",Snackbar.LENGTH_LONG).show();
 
         btnTrackEmp=(Button)findViewById(R.id.btnTrackEmp);
         btnTrackVeh=(Button)findViewById(R.id.btnTrackVeh);

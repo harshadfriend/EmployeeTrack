@@ -49,14 +49,14 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         if(employeetrack.beit.employeetrack.Settings.i==3){
-            btnProfile.setTextSize(21);
-            btnAttendance.setTextSize(21);
-            btnTrackEmp.setTextSize(21);
-            btnTrackVeh.setTextSize(21);
-            btnHelp.setTextSize(21);
-            btnSettings.setTextSize(21);
-            btnAddEmp.setTextSize(21);
-            btnAddVeh.setTextSize(21);
+            btnProfile.setTextSize(20);
+            btnAttendance.setTextSize(20);
+            btnTrackEmp.setTextSize(20);
+            btnTrackVeh.setTextSize(20);
+            btnHelp.setTextSize(20);
+            btnSettings.setTextSize(20);
+            btnAddEmp.setTextSize(20);
+            btnAddVeh.setTextSize(20);
         }
 
        btnTrackEmp.setOnClickListener(new View.OnClickListener() {
